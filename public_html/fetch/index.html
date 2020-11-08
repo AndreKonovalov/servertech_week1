@@ -13,7 +13,9 @@
 			const button = document.getElementById('bt');
 			button.addEventListener('click', () => {
 				const input = document.getElementById('inp');
+				console.log('input = ' + input);
 				const { value } = input;
+				console.log('value = ' + value);
 				fetch(value)
 					.then((data) => {
 						let a = data.text();
