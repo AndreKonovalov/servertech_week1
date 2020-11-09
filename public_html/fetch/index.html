@@ -17,10 +17,15 @@
 				const { value } = input;
 				console.log('value1 = ' + value);
 				fetch(value)
-					.then(data => {
-						let a = data.text();
-						console.log('data.text() = ' + a);
-						return a;
+					.then(response => {
+						if (response.ok) { // если HTTP-статус в диапазоне 200-299
+							let a = response.text();
+							console.log('response.text() = ' + a);
+							return a;
+						} else {
+  							alert("Ошибка HTTP: " + response.status);
+							return "-";
+						}
 					})
 					.then(a => input.value = a)
 					.catch((e) => console.log(e))
