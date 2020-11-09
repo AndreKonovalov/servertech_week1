@@ -15,20 +15,16 @@
 			console.log('value1 = ' + value);
 			fetch(value)
 				.then(response => {
-					console.log("status: " + response.status);
 					if (response.ok) { // если HTTP-статус в диапазоне 200-299
 						return response.text();
 					} else {
 						throw new Error("Ошибка HTTP: " + response.status);
-//						alert("Ошибка HTTP: " + response.status);
-//						return "Ошибка HTTP: " + response.status;
 					}
 				})
-				.then(a => { input.value = a; console.log('text = ' + a); })
-				.catch((e) => console.log(e))
+				.then(a => input.value = a; )
+				.catch(e => console.log(e))
 		}
 		document.getElementById('bt').addEventListener('click', clk );
-//		listener();
-	</script>	
+	</script>
 </body>
 </html>
