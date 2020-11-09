@@ -16,9 +16,9 @@
 			fetch(value)
 				.then(response => {
 					if (response.ok) { // если HTTP-статус в диапазоне 200-299
-						let a = await response.text();
+						let a = response.text();
 						console.log('response.text() = ' + a);
-						input.value = a;
+						return a;
 					} else {
 						new Error("Ошибка HTTP: " + response.status);
 //						return(new Error("Ошибка HTTP: " + response.status));
@@ -26,7 +26,7 @@
 //						return "Ошибка HTTP: " + response.status;
 					}
 				})
-//				.then(a => { input.value = a; console.log('text = ' + a); })
+				.then(a => { input.value = a; console.log('text = ' + a); })
 				.catch((e) => console.log(e))
 		}
 		document.getElementById('bt').addEventListener('click', clk );
