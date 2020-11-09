@@ -21,7 +21,7 @@
 						throw new Error("Ошибка HTTP: " + response.status);
 					}
 				})
-				.then(a => input.value = a; )
+				.then(a => input.value = a )
 				.catch(e => console.log(e))
 		}
 		document.getElementById('bt').addEventListener('click', clk );
