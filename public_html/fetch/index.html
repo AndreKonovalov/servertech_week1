@@ -19,7 +19,7 @@
 					if (response.ok) { // если HTTP-статус в диапазоне 200-299
 						return response.text();
 					} else {
-						return(new Error("Ошибка HTTP: " + response.status));
+						throw new Error("Ошибка HTTP: " + response.status);
 //						alert("Ошибка HTTP: " + response.status);
 //						return "Ошибка HTTP: " + response.status;
 					}
