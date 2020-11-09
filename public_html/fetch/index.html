@@ -10,21 +10,23 @@
 	<button id="bt">button</button>
 	<script>
 		function clk() {
-			const { value } = document.getElementById('inp');
+			let input = document.getElementById('inp');
+			const { value } = input;
 			console.log('value1 = ' + value);
 			fetch(value)
 				.then(response => {
 					if (response.ok) { // если HTTP-статус в диапазоне 200-299
-						let a = response.text();
+						let a = await response.text();
 						console.log('response.text() = ' + a);
-						return a;
+						input.value = a;
 					} else {
-						return(new Error("Ошибка HTTP: " + response.status));
+						new Error("Ошибка HTTP: " + response.status);
+//						return(new Error("Ошибка HTTP: " + response.status));
 //						alert("Ошибка HTTP: " + response.status);
 //						return "Ошибка HTTP: " + response.status;
 					}
 				})
-				.then(a => { input.value = a; console.log('text = ' + a); })
+//				.then(a => { input.value = a; console.log('text = ' + a); })
 				.catch((e) => console.log(e))
 		}
 		document.getElementById('bt').addEventListener('click', clk );
