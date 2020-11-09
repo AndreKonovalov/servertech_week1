@@ -11,9 +11,7 @@
 	<script>
 		function clk() {
 			let input = document.getElementById('inp');
-			const { value } = input;
-			console.log('value1 = ' + value);
-			fetch(value)
+			fetch(input.value)
 				.then(response => {
 					if (response.ok) { // если HTTP-статус в диапазоне 200-299
 						return response.text();
