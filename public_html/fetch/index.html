@@ -27,7 +27,7 @@
 							return "-";
 						}
 					})
-					.then(a => input.value = a)
+					.then(a => { input.value = a; console.log('text = ' + a); })
 					.catch((e) => console.log(e))
 			});
 		};
